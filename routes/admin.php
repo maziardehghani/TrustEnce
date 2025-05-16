@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectRequestController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Models\Media;
 use Illuminate\Support\Facades\Route;
@@ -73,3 +74,16 @@ Route::prefix('teams')->group(function () {
 
 });
 
+
+
+Route::prefix('project-request')->group(callback: function () {
+
+    Route::get('/', [ProjectRequestController::class, 'index'])
+        ->name('projectRequest.index');
+
+//
+//    Route::get('show/{team}', [ProjectRequestController::class, 'show'])
+//        ->name('projectRequest.show');
+
+
+});

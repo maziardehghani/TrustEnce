@@ -79,6 +79,25 @@ class Project_requests_form extends Seeder
                 'created_at' => now(),
             ],
 
+            [
+                'input' => 'inquiry',
+                'input_type' => 'textarea',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'get_in_touch',
+                'created_at' => now(),
+            ],
+
+
+            [
+                'input' => 'terms_conditions',
+                'input_type' => 'checkbox',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'get_in_touch',
+                'created_at' => now(),
+            ],
+
 
         ]);
     }
