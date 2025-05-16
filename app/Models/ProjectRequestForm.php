@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class ProjectRequestForm extends Model
@@ -15,4 +16,16 @@ class ProjectRequestForm extends Model
         'is_active',
         'created_at',
     ];
+
+
+    public function optionsValues(): Attribute
+    {
+        return Attribute::make(get: fn () => json_decode($this->options));
+    }
+
+
+    public function scopeWhereActive($query)
+    {
+        return $query->where('is_active', true);
+    }
 }

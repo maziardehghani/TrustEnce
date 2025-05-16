@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\ProjectRequestForm;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class Project_requests_form extends Seeder
