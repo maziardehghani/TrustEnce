@@ -16,7 +16,11 @@ class TeamResources extends JsonResource
     {
         return [
             'name' => $this->fullName,
-            'position' => $this->position
+            'position' => $this->position,
+            'bio' => $this->bio,
+            'linkedin' => $this->linkedin,
+            'twitter' => $this->twitter,
+            'github' => $this->github,
         ];
     }
 }

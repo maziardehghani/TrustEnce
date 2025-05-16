@@ -21,7 +21,28 @@ class Team extends Model
 
     public function position(): Attribute
     {
-        return Attribute::make(get: fn() => $this->getAttr('position')->value);
+        return Attribute::make(get: fn() => $this->getAttr('position')?->value);
+    }
+
+    public function bio(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->getAttr('bio')?->value);
+    }
+
+    public function linkedin(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->getAttr('linkedin')?->value);
+    }
+
+    public function twitter(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->getAttr('twitter')?->value);
+    }
+
+
+    public function github(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->getAttr('github')?->value);
     }
 
     public function fullName(): Attribute
@@ -32,7 +53,7 @@ class Team extends Model
     public function getAttr($attr)
     {
         return TeamAttrValue::query()->whereHas('attrTitle', function ($query) use ($attr) {
-            $query->where('title', $attr);
+            $query->where(['title'=> $attr, 'team_id'=> $this->id]);
         })->first();
     }
 
