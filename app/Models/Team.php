@@ -24,6 +24,11 @@ class Team extends Model
         return Attribute::make(get: fn() => $this->getAttr('position')->value);
     }
 
+    public function fullName(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->name . ' ' . $this->family);
+    }
+
     public function getAttr($attr)
     {
         return TeamAttrValue::query()->whereHas('attrTitle', function ($query) use ($attr) {
