@@ -36,5 +36,10 @@ class ProjectRequestForm extends Model
     }
 
 
+    public function scopeWhereInput($query, $input)
+    {
+        return $query->where('input', $input);
+    }
+
 
 }

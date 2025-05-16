@@ -13,3 +13,4 @@ Route::get('/our-team/', [TeamController::class, 'teams']);
 
 
 Route::get('/project-request-form/{formPage}', [ProjectRequestController::class, 'projectRequestForm']);
+Route::post('/project-request', [ProjectRequestController::class, 'storeProjectRequest']);

@@ -15,7 +15,7 @@ class Project_requests_form extends Seeder
         ProjectRequestForm::query()->insert([
 
             [
-                'input' => 'Full Name',
+                'input' => 'Full_Name',
                 'input_type' => 'text',
                 'options' => null,
                 'is_active' => true,
@@ -25,7 +25,7 @@ class Project_requests_form extends Seeder
 
 
             [
-                'input' => 'Phone Number',
+                'input' => 'Phone_Number',
                 'input_type' => 'text',
                 'options' => null,
                 'is_active' => true,
@@ -35,7 +35,7 @@ class Project_requests_form extends Seeder
 
 
             [
-                'input' => 'Select Service',
+                'input' => 'Select_Service',
                 'input_type' => 'select-box',
                 'options' => json_encode(
                     [
@@ -53,25 +53,7 @@ class Project_requests_form extends Seeder
 
 
             [
-                'input' => 'Budget Range',
-                'input_type' => 'select-box',
-                'options' => json_encode(
-                    [
-                        'normal web site design',
-                        'professional web site design',
-                        'other'
-                    ]
-
-                ),
-
-                'is_active' => true,
-                'form_page' => 'discovery_session',
-                'created_at' => now(),
-            ],
-
-
-            [
-                'input' => 'Budget Range',
+                'input' => 'Budget_Range',
                 'input_type' => 'select-box',
                 'options' => json_encode(
                     [
@@ -89,7 +71,7 @@ class Project_requests_form extends Seeder
 
 
             [
-                'input' => 'Project Brief',
+                'input' => 'Project_Brief',
                 'input_type' => 'textarea',
                 'options' => null,
                 'is_active' => true,
