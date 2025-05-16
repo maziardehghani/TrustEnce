@@ -14,6 +14,7 @@ class ProjectRequestForm extends Model
         'input_type',
         'options',
         'is_active',
+        'form_page',
         'created_at',
     ];
 
@@ -28,4 +29,12 @@ class ProjectRequestForm extends Model
     {
         return $query->where('is_active', true);
     }
+
+    public function scopeWhereFormPage($query, $formPage)
+    {
+        return $query->where('form_page', $formPage);
+    }
+
+
+
 }

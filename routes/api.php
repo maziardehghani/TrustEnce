@@ -12,4 +12,4 @@ Route::get('/projects/', [ProjectController::class, 'allProjects']);
 Route::get('/our-team/', [TeamController::class, 'teams']);
 
 
-Route::get('/project-request-form', [ProjectRequestController::class, 'projectRequestForm']);
+Route::get('/project-request-form/{formPage}', [ProjectRequestController::class, 'projectRequestForm']);

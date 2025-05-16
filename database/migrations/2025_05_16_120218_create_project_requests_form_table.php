@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('input_type');
             $table->json('options')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->enum('form_page', ['discovery_session', 'get_in_touch']);
             $table->timestamps();
         });
     }

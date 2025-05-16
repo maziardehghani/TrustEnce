@@ -19,6 +19,7 @@ class Project_requests_form extends Seeder
                 'input_type' => 'text',
                 'options' => null,
                 'is_active' => true,
+                'form_page' => 'discovery_session',
                 'created_at' => now(),
             ],
 
@@ -28,6 +29,7 @@ class Project_requests_form extends Seeder
                 'input_type' => 'text',
                 'options' => null,
                 'is_active' => true,
+                'form_page' => 'discovery_session',
                 'created_at' => now(),
             ],
 
@@ -45,6 +47,7 @@ class Project_requests_form extends Seeder
                 ),
 
                 'is_active' => true,
+                'form_page' => 'discovery_session',
                 'created_at' => now(),
             ],
 
@@ -62,6 +65,7 @@ class Project_requests_form extends Seeder
                 ),
 
                 'is_active' => true,
+                'form_page' => 'discovery_session',
                 'created_at' => now(),
             ],
 
@@ -79,6 +83,7 @@ class Project_requests_form extends Seeder
                 ),
 
                 'is_active' => true,
+                'form_page' => 'discovery_session',
                 'created_at' => now(),
             ],
 
@@ -88,6 +93,7 @@ class Project_requests_form extends Seeder
                 'input_type' => 'textarea',
                 'options' => null,
                 'is_active' => true,
+                'form_page' => 'discovery_session',
                 'created_at' => now(),
             ],
 

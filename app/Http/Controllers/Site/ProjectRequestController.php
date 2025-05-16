@@ -8,10 +8,19 @@ use App\Models\ProjectRequestForm;
 
 class ProjectRequestController extends Controller
 {
-    public function projectRequestForm()
+    public function projectRequestForm($formPage)
     {
-        $projectRequestForm = ProjectRequestForm::query()->whereActive()->get();
+        $projectRequestForm = ProjectRequestForm::query()
+            ->whereActive()
+            ->whereFormPage($formPage)
+            ->get();
 
         return response()->success(ProjectRequestFormResources::collection($projectRequestForm));
+    }
+
+
+    public function storeProjectRequest()
+    {
+
     }
 }
