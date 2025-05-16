@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('input');
             $table->string('input_type');
+            $table->json('options')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ return new class extends Migration
                 ->constrained('project_requests');
 
 
-            $table->string('value');
+            $table->string('value')->nullable();
 
             $table->timestamps();
         });

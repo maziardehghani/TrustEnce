@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             TeamAttrTitleSeeder::class,
             TeamAttrValueSeeder::class,
+            Project_requests_form::class,
         ]);
     }
 }
