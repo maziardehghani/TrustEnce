@@ -19,7 +19,6 @@ class TeamController extends Controller
 
         return response()->success(TeamResources::collection($teams), 200);
     }
-
     /**
      * Store a newly created resource in storage.
      */
