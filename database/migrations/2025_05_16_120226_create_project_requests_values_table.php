@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('project_requests_values', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('project_request_form_id')
+                ->constrained('project_requests_form');
+
+            $table->foreignId('project_request_id')
+                ->constrained('project_requests');
+
+
+            $table->string('value');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('project_requests_values');
+    }
+};
