@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TeamResources;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $teams = Team::query()->latest()->get();
+
+        return response()->success(TeamResources::collection($teams), 200);
     }
 
     /**

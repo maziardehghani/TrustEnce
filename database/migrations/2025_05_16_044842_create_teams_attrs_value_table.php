@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('teams_attrs_value', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('att_title_id')
+
+            $table->foreignId('attr_title_id')
                 ->constrained('teams_attrs_title');
+
+            $table->foreignId('team_id')
+                ->constrained('teams');
+
+
             $table->string('value');
             $table->timestamps();
         });

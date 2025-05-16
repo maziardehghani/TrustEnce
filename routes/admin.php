@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Models\Media;
 use Illuminate\Support\Facades\Route;
 
@@ -53,4 +54,22 @@ Route::prefix('medias')->group(function () {
 });
 
 
+Route::prefix('teams')->group(function () {
+
+    Route::get('/', [TeamController::class, 'index'])
+        ->name('teams.index');
+
+
+    Route::get('show/{project}', [TeamController::class, 'show'])
+        ->name('teams.show');
+
+
+    Route::post('store', [TeamController::class, 'store'])
+        ->name('teams.store');
+
+
+    Route::put('update/{project}', [TeamController::class, 'update'])
+        ->name('teams.update');
+
+});
 
