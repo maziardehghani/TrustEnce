@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+    use HasMedia;
+
     protected $table = 'teams';
 
     protected $fillable = [

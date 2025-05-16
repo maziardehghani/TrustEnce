@@ -25,11 +25,6 @@ class Project extends Model
         'medias'
     ];
 
-    public function mediaFile(): Attribute
-    {
-        return Attribute::make(fn() => $this->medias?->url);
-    }
-
     public function scopeWhereActive($query)
     {
         return $query->where('is_active', true);

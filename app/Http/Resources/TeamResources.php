@@ -21,6 +21,8 @@ class TeamResources extends JsonResource
             'linkedin' => $this->linkedin,
             'twitter' => $this->twitter,
             'github' => $this->github,
+            'profile' => $this->mediaFile,
+
         ];
     }
 }
