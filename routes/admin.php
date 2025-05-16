@@ -60,16 +60,16 @@ Route::prefix('teams')->group(function () {
         ->name('teams.index');
 
 
-    Route::get('show/{project}', [TeamController::class, 'show'])
+    Route::get('show/{team}', [TeamController::class, 'show'])
         ->name('teams.show');
 
 
-    Route::post('store', [TeamController::class, 'store'])
-        ->name('teams.store');
-
-
-    Route::put('update/{project}', [TeamController::class, 'update'])
-        ->name('teams.update');
+//    Route::post('store', [TeamController::class, 'store'])
+//        ->name('teams.store');
+//
+//
+//    Route::put('update/{project}', [TeamController::class, 'update'])
+//        ->name('teams.update');
 
 });
 

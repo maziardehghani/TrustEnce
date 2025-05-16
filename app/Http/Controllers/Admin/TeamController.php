@@ -33,7 +33,7 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+        return response()->success(new TeamResources($team));
     }
 
     /**
