@@ -15,21 +15,20 @@ class TeamSeeder extends Seeder
      */
     public function run(): void
     {
-        $team = Team::query()->create([
-            'name' => 'maziar',
-            'family' => 'dehghani',
-        ]);
+        $team = Team::query()->insert(
+            [
+                [
+                    'name' => 'maziar',
+                    'family' => 'dehghani',
+                    'created_at' => now(),
+                ],
+                [
+                    'name' => 'ali',
+                    'family' => 'ashrafi',
+                    'created_at' => now(),
+                ]
+            ]
+        );
 
-        $teamAttrTitle = TeamAttrTitle::query()->create([
-            'title' => 'position',
-            'input_type' => 'string',
-        ]);
-
-
-        $teamAttrValue = TeamAttrValue::query()->create([
-            'attr_title_id' => $teamAttrTitle->id,
-            'team_id'=> $team->id,
-            'value'=> 'software Engineer',
-        ]);
     }
 }

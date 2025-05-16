@@ -44,5 +44,10 @@ class Team extends Model
         })->get();
     }
 
+    public function scopeWhereName($query, $name)
+    {
+        return $query->where('name', $name);
+    }
+
 
 }
