@@ -22,5 +22,10 @@ class ProjectController extends Controller
         return response()->success(ProjectResources::collection($projects));
     }
 
+    public function show(Project $project)
+    {
+        return response()->success(new ProjectResources($project));
+    }
+
 
 }

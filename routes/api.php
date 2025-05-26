@@ -9,6 +9,8 @@ Route::get('/last-projects/{limit}', [ProjectController::class, 'lastProjects'])
 
 Route::get('/projects/', [ProjectController::class, 'allProjects']);
 
+Route::get('/projects/{project}', [ProjectController::class, 'show']);
+
 Route::get('/our-team/', [TeamController::class, 'teams']);
 
 
