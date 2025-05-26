@@ -30,4 +30,20 @@ class Project extends Model
         return $query->where('is_active', true);
     }
 
+
+    public function banner(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+           return $this->medias()->where('type', 'banner')->first()?->url;
+        });
+    }
+
+
+    public function background(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'background')->first()?->url;
+        });
+    }
+
 }

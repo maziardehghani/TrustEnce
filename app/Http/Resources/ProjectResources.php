@@ -22,7 +22,8 @@ class ProjectResources extends JsonResource
             'description' => $this->description,
             'link' => $this->link,
             'is_active' => $this->is_active,
-            'banner' => $this->mediaFile,
+            'banner' => $this->banner,
+            'background' => $this->background,
             'created_at' => Carbon::parse($this->created_at)->format('Y-m-d'),
         ];
     }
