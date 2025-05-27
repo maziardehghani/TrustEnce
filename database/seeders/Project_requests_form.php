@@ -19,17 +19,25 @@ class Project_requests_form extends Seeder
                 'input_type' => 'text',
                 'options' => null,
                 'is_active' => true,
-                'form_page' => 'discovery_session',
+                'form_page' => 'service',
                 'created_at' => now(),
             ],
 
+            [
+                'input' => 'Email',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'service',
+                'created_at' => now(),
+            ],
 
             [
                 'input' => 'Phone_Number',
                 'input_type' => 'text',
                 'options' => null,
                 'is_active' => true,
-                'form_page' => 'discovery_session',
+                'form_page' => 'service',
                 'created_at' => now(),
             ],
 
@@ -47,7 +55,7 @@ class Project_requests_form extends Seeder
                 ),
 
                 'is_active' => true,
-                'form_page' => 'discovery_session',
+                'form_page' => 'service',
                 'created_at' => now(),
             ],
 
@@ -65,7 +73,7 @@ class Project_requests_form extends Seeder
                 ),
 
                 'is_active' => true,
-                'form_page' => 'discovery_session',
+                'form_page' => 'service',
                 'created_at' => now(),
             ],
 
@@ -75,12 +83,30 @@ class Project_requests_form extends Seeder
                 'input_type' => 'textarea',
                 'options' => null,
                 'is_active' => true,
-                'form_page' => 'discovery_session',
+                'form_page' => 'service',
                 'created_at' => now(),
             ],
 
             [
-                'input' => 'inquiry',
+                'input' => 'Full_Name',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'get_in_touch',
+                'created_at' => now(),
+            ],
+
+            [
+                'input' => 'Email',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'get_in_touch',
+                'created_at' => now(),
+            ],
+
+            [
+                'input' => 'Inquiry',
                 'input_type' => 'textarea',
                 'options' => null,
                 'is_active' => true,
@@ -90,7 +116,7 @@ class Project_requests_form extends Seeder
 
 
             [
-                'input' => 'terms_conditions',
+                'input' => 'Terms_conditions',
                 'input_type' => 'checkbox',
                 'options' => null,
                 'is_active' => true,
@@ -98,6 +124,52 @@ class Project_requests_form extends Seeder
                 'created_at' => now(),
             ],
 
+
+            [
+                'input' => 'Email',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'footer',
+                'created_at' => now(),
+            ],
+
+            [
+                'input' => 'Full_Name',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'discovery_section',
+                'created_at' => now(),
+            ],
+
+
+            [
+                'input' => 'Email',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'discovery_section',
+                'created_at' => now(),
+            ],
+
+            [
+                'input' => 'Phone_Number',
+                'input_type' => 'text',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'discovery_section',
+                'created_at' => now(),
+            ],
+
+            [
+                'input' => 'About',
+                'input_type' => 'textarea',
+                'options' => null,
+                'is_active' => true,
+                'form_page' => 'discovery_section',
+                'created_at' => now(),
+            ],
 
         ]);
     }
