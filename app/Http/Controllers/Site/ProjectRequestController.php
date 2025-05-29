@@ -27,7 +27,7 @@ class ProjectRequestController extends Controller
     {
 
         $projectRequest = ProjectRequest::query()->create([
-            'email' => $request->email
+            'email' => $request->input('Email')
         ]);
 
         foreach ($request->keys() as $key) {
