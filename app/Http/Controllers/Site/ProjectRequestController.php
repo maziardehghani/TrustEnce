@@ -30,7 +30,7 @@ class ProjectRequestController extends Controller
         ]);
 
         foreach ($request->keys() as $key) {
-            $input = ProjectRequestForm::query()->whereInput($key)->first();
+            $input = ProjectRequestForm::query()->whereInput($key)->whereFormPage($request->formPage)->first();
 
             if (!$input) {
                 continue;
