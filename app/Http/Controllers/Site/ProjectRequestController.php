@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
 use App\Http\Resources\ProjectRequestFormResources;
 use App\Models\ProjectRequest;
 use App\Models\ProjectRequestForm;
@@ -22,7 +23,7 @@ class ProjectRequestController extends Controller
     }
 
 
-    public function storeProjectRequest(Request $request)
+    public function storeProjectRequest(StoreProjectRequest $request)
     {
 
         $projectRequest = ProjectRequest::query()->create([
@@ -30,7 +31,7 @@ class ProjectRequestController extends Controller
         ]);
 
         foreach ($request->keys() as $key) {
-            $input = ProjectRequestForm::query()->whereInput($key)->whereFormPage($request->formPage)->first();
+            $input = ProjectRequestForm::query()->whereInput($key)->whereFormPage($request->form_page)->first();
 
             if (!$input) {
                 continue;
