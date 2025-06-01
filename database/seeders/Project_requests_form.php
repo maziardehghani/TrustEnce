@@ -163,7 +163,7 @@ class Project_requests_form extends Seeder
             ],
 
             [
-                'input' => 'About',
+                'input' => 'Inquiry',
                 'input_type' => 'textarea',
                 'options' => null,
                 'is_active' => true,
