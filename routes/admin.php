@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\MediaController;
-use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\ProjectRequestController;
-use App\Http\Controllers\Admin\TeamController;
-use App\Models\Media;
+use App\Http\Controllers\Admin\web\MediaController;
+use App\Http\Controllers\Admin\web\ProjectController;
+use App\Http\Controllers\Admin\web\ProjectRequestController;
+use App\Http\Controllers\Admin\web\TeamController;
 use Illuminate\Support\Facades\Route;
-
 
 
 Route::prefix('projects')->group(function () {

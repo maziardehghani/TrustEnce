@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت موجودی - انبارداری داروخانه</title>
+    
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Vazir Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="btn btn-outline-light me-3" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="bi bi-hospital me-2"></i>
+                داشبورد انبارداری داروخانه
+            </a>
+            
+            <div class="navbar-nav me-auto">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle me-1"></i>
+                        کاربر
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>پروفایل</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>تنظیمات</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>خروج</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-light ms-2" id="themeToggle">
+                    <i class="bi bi-sun-fill" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="bi bi-house-door me-2"></i>
+                                داشبورد
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="inventory.html">
+                                <i class="bi bi-box-seam me-2"></i>
+                                مدیریت موجودی
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="stock.html">
+                                <i class="bi bi-arrow-down-up me-2"></i>
+                                ورود و خروج کالا
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">
+                                <i class="bi bi-cart me-2"></i>
+                                مدیریت سفارش‌ها
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="expiry.html">
+                                <i class="bi bi-calendar-x me-2"></i>
+                                داروهای تاریخ‌دار
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reports.html">
+                                <i class="bi bi-graph-up me-2"></i>
+                                گزارش‌ها و آمار
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">
+                                <i class="bi bi-people me-2"></i>
+                                مدیریت کاربران
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html">
+                                <i class="bi bi-gear me-2"></i>
+                                تنظیمات
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">مدیریت موجودی</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDrugModal">
+                                <i class="bi bi-plus-circle me-1"></i>افزودن دارو
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <i class="bi bi-download me-1"></i>خروجی اکسل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label for="drugSearch" class="form-label">جستجوی دارو</label>
+                        <input type="text" class="form-control" id="drugSearch" placeholder="نام یا کد دارو...">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="categoryFilter" class="form-label">دسته‌بندی</label>
+                        <select class="form-select" id="categoryFilter">
+                            <option value="">همه دسته‌ها</option>
+                            <option value="analgesic">مسکن</option>
+                            <option value="antibiotic">آنتی‌بیوتیک</option>
+                            <option value="vitamin">ویتامین</option>
+                            <option value="supplement">مکمل</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="expiryFilter" class="form-label">وضعیت انقضا</label>
+                        <select class="form-select" id="expiryFilter">
+                            <option value="">همه</option>
+                            <option value="expired">منقضی شده</option>
+                            <option value="near_expiry">نزدیک به انقضا</option>
+                            <option value="fresh">تازه</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="stockFilter" class="form-label">وضعیت موجودی</label>
+                        <select class="form-select" id="stockFilter">
+                            <option value="">همه</option>
+                            <option value="in_stock">موجود</option>
+                            <option value="low_stock">کم</option>
+                            <option value="out_of_stock">ناموجود</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Inventory Table -->
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">فهرست داروها</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="inventoryTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>کد دارو</th>
+                                        <th>نام دارو</th>
+                                        <th>دسته‌بندی</th>
+                                        <th>موجودی</th>
+                                        <th>حداقل موجودی</th>
+                                        <th>قیمت خرید</th>
+                                        <th>قیمت فروش</th>
+                                        <th>تاریخ انقضا</th>
+                                        <th>وضعیت</th>
+                                        <th>عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>DR001</td>
+                                        <td>پاراستامول 500mg</td>
+                                        <td><span class="badge bg-primary">مسکن</span></td>
+                                        <td>850</td>
+                                        <td>100</td>
+                                        <td>2,500</td>
+                                        <td>3,500</td>
+                                        <td>1403/12/15</td>
+                                        <td><span class="badge bg-success">موجود</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="حذف">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>DR002</td>
+                                        <td>ایبوپروفن 400mg</td>
+                                        <td><span class="badge bg-primary">مسکن</span></td>
+                                        <td>45</td>
+                                        <td>50</td>
+                                        <td>3,200</td>
+                                        <td>4,800</td>
+                                        <td>1403/08/22</td>
+                                        <td><span class="badge bg-warning">کم</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="حذف">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>DR003</td>
+                                        <td>آموکسی سیلین 250mg</td>
+                                        <td><span class="badge bg-info">آنتی‌بیوتیک</span></td>
+                                        <td>320</td>
+                                        <td>80</td>
+                                        <td>8,500</td>
+                                        <td>12,000</td>
+                                        <td>1403/10/05</td>
+                                        <td><span class="badge bg-success">موجود</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="حذف">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>DR004</td>
+                                        <td>ویتامین C 1000mg</td>
+                                        <td><span class="badge bg-warning">ویتامین</span></td>
+                                        <td>0</td>
+                                        <td>25</td>
+                                        <td>15,000</td>
+                                        <td>22,000</td>
+                                        <td>1404/01/10</td>
+                                        <td><span class="badge bg-danger">ناموجود</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="حذف">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>DR005</td>
+                                        <td>آسپرین 80mg</td>
+                                        <td><span class="badge bg-primary">مسکن</span></td>
+                                        <td>445</td>
+                                        <td>75</td>
+                                        <td>1,800</td>
+                                        <td>2,800</td>
+                                        <td>1403/07/18</td>
+                                        <td><span class="badge bg-danger">نزدیک انقضا</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" title="حذف">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <nav aria-label="صفحه‌بندی">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">بعدی</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

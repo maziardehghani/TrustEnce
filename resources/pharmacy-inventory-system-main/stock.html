@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود و خروج کالا - انبارداری داروخانه</title>
+    
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Vazir Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="btn btn-outline-light me-3" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="bi bi-hospital me-2"></i>
+                داشبورد انبارداری داروخانه
+            </a>
+            
+            <div class="navbar-nav me-auto">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle me-1"></i>
+                        کاربر
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>پروفایل</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>تنظیمات</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>خروج</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-light ms-2" id="themeToggle">
+                    <i class="bi bi-sun-fill" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="bi bi-house-door me-2"></i>
+                                داشبورد
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="inventory.html">
+                                <i class="bi bi-box-seam me-2"></i>
+                                مدیریت موجودی
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="stock.html">
+                                <i class="bi bi-arrow-down-up me-2"></i>
+                                ورود و خروج کالا
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">
+                                <i class="bi bi-cart me-2"></i>
+                                مدیریت سفارش‌ها
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="expiry.html">
+                                <i class="bi bi-calendar-x me-2"></i>
+                                داروهای تاریخ‌دار
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reports.html">
+                                <i class="bi bi-graph-up me-2"></i>
+                                گزارش‌ها و آمار
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">
+                                <i class="bi bi-people me-2"></i>
+                                مدیریت کاربران
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html">
+                                <i class="bi bi-gear me-2"></i>
+                                تنظیمات
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">ورود و خروج کالا</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-success">
+                                <i class="bi bi-arrow-down-circle me-1"></i>ورود کالا
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <i class="bi bi-arrow-up-circle me-1"></i>خروج کالا
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            ورود امروز
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">1,250 قلم</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-arrow-down-circle fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                            خروج امروز
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">890 قلم</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-arrow-up-circle fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            ارزش ورود
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">45,000,000 تومان</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-currency-dollar fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            ارزش خروج
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">28,500,000 تومان</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-graph-down fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label for="transactionSearch" class="form-label">جستجو</label>
+                        <input type="text" class="form-control" id="transactionSearch" placeholder="نام دارو یا شماره تراکنش...">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="transactionType" class="form-label">نوع تراکنش</label>
+                        <select class="form-select" id="transactionType">
+                            <option value="">همه</option>
+                            <option value="in">ورود</option>
+                            <option value="out">خروج</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dateFrom" class="form-label">از تاریخ</label>
+                        <input type="date" class="form-control" id="dateFrom">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dateTo" class="form-label">تا تاریخ</label>
+                        <input type="date" class="form-control" id="dateTo">
+                    </div>
+                </div>
+
+                <!-- Transactions Table -->
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h6 class="m-0 font-weight-bold text-primary">تاریخچه تراکنش‌ها</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="transactionsTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>شماره تراکنش</th>
+                                        <th>نوع</th>
+                                        <th>نام دارو</th>
+                                        <th>کد دارو</th>
+                                        <th>تعداد</th>
+                                        <th>قیمت واحد</th>
+                                        <th>قیمت کل</th>
+                                        <th>تاریخ</th>
+                                        <th>کاربر</th>
+                                        <th>توضیحات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#TXN001</td>
+                                        <td><span class="badge bg-success">ورود</span></td>
+                                        <td>پاراستامول 500mg</td>
+                                        <td>DR001</td>
+                                        <td>100</td>
+                                        <td>2,500</td>
+                                        <td>250,000</td>
+                                        <td>1403/06/15 - 09:30</td>
+                                        <td>احمد رضایی</td>
+                                        <td>خرید از شرکت کیمیا دارو</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN002</td>
+                                        <td><span class="badge bg-danger">خروج</span></td>
+                                        <td>ایبوپروفن 400mg</td>
+                                        <td>DR002</td>
+                                        <td>25</td>
+                                        <td>4,800</td>
+                                        <td>120,000</td>
+                                        <td>1403/06/15 - 11:15</td>
+                                        <td>فاطمه محمدی</td>
+                                        <td>فروش به بیمار</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN003</td>
+                                        <td><span class="badge bg-success">ورود</span></td>
+                                        <td>آموکسی سیلین 250mg</td>
+                                        <td>DR003</td>
+                                        <td>50</td>
+                                        <td>8,500</td>
+                                        <td>425,000</td>
+                                        <td>1403/06/15 - 14:20</td>
+                                        <td>علی حسینی</td>
+                                        <td>خرید از داروپخش رازی</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN004</td>
+                                        <td><span class="badge bg-danger">خروج</span></td>
+                                        <td>ویتامین C 1000mg</td>
+                                        <td>DR004</td>
+                                        <td>10</td>
+                                        <td>22,000</td>
+                                        <td>220,000</td>
+                                        <td>1403/06/15 - 16:45</td>
+                                        <td>فاطمه محمدی</td>
+                                        <td>انتقال به شعبه مرکزی</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN005</td>
+                                        <td><span class="badge bg-warning">برگشت</span></td>
+                                        <td>آسپرین 80mg</td>
+                                        <td>DR005</td>
+                                        <td>5</td>
+                                        <td>2,800</td>
+                                        <td>14,000</td>
+                                        <td>1403/06/15 - 18:10</td>
+                                        <td>احمد رضایی</td>
+                                        <td>برگشت از بیمار</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN006</td>
+                                        <td><span class="badge bg-success">ورود</span></td>
+                                        <td>لوپرامید 2mg</td>
+                                        <td>DR006</td>
+                                        <td>200</td>
+                                        <td>1,200</td>
+                                        <td>240,000</td>
+                                        <td>1403/06/14 - 16:30</td>
+                                        <td>علی حسینی</td>
+                                        <td>خرید از شرکت البرز دارو</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TXN007</td>
+                                        <td><span class="badge bg-danger">خروج</span></td>
+                                        <td>دیکلوفناک 50mg</td>
+                                        <td>DR007</td>
+                                        <td>15</td>
+                                        <td>3,500</td>
+                                        <td>52,500</td>
+                                        <td>1403/06/14 - 13:45</td>
+                                        <td>فاطمه محمدی</td>
+                                        <td>فروش به بیمار</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <nav aria-label="صفحه‌بندی">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">بعدی</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد - انبارداری داروخانه</title>
+    
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Vazir Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <button class="btn btn-outline-light me-3" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="bi bi-hospital me-2"></i>
+                داشبورد انبارداری داروخانه
+            </a>
+            
+            <div class="navbar-nav me-auto">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle me-1"></i>
+                        کاربر
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>پروفایل</a></li>
+                        <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>تنظیمات</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>خروج</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-light ms-2" id="themeToggle">
+                    <i class="bi bi-sun-fill" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="dashboard.html">
+                                <i class="bi bi-house-door me-2"></i>
+                                داشبورد
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="inventory.html">
+                                <i class="bi bi-box-seam me-2"></i>
+                                مدیریت موجودی
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="stock.html">
+                                <i class="bi bi-arrow-down-up me-2"></i>
+                                ورود و خروج کالا
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">
+                                <i class="bi bi-cart me-2"></i>
+                                مدیریت سفارش‌ها
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="expiry.html">
+                                <i class="bi bi-calendar-x me-2"></i>
+                                داروهای تاریخ‌دار
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reports.html">
+                                <i class="bi bi-graph-up me-2"></i>
+                                گزارش‌ها و آمار
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="users.html">
+                                <i class="bi bi-people me-2"></i>
+                                مدیریت کاربران
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html">
+                                <i class="bi bi-gear me-2"></i>
+                                تنظیمات
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">داشبورد</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">امروز</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">هفته</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">ماه</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="alert alert-warning" role="alert">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <strong>هشدار!</strong> 15 دارو نزدیک به تاریخ انقضا هستند.
+                            <a href="expiry.html" class="alert-link">مشاهده لیست</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert alert-danger" role="alert">
+                            <i class="bi bi-exclamation-circle me-2"></i>
+                            <strong>کمبود موجودی!</strong> 8 دارو نیاز به سفارش دارند.
+                            <a href="orders.html" class="alert-link">سفارش کالا</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            کل موجودی
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">2,847</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-box-seam fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            فروش امروز
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">1,250,000 تومان</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-currency-dollar fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            سفارش‌های در انتظار
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-cart fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-right-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col me-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            نزدیک به انقضا
+                                        </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-calendar-x fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">نمودار فروش</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="salesChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">پرفروش‌ترین داروها</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-pie pt-4 pb-2">
+                                    <canvas id="topDrugsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">آخرین فعالیت‌ها</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="bi bi-arrow-down-circle text-success me-2"></i>
+                                            ورود 100 عدد پاراستامول
+                                        </div>
+                                        <small class="text-muted">5 دقیقه پیش</small>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="bi bi-arrow-up-circle text-danger me-2"></i>
+                                            خروج 25 عدد ایبوپروفن
+                                        </div>
+                                        <small class="text-muted">15 دقیقه پیش</small>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="bi bi-cart-plus text-info me-2"></i>
+                                            سفارش جدید از شرکت کیمیا دارو
+                                        </div>
+                                        <small class="text-muted">1 ساعت پیش</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">داروهای پرمصرف</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>نام دارو</th>
+                                                <th>تعداد فروش</th>
+                                                <th>موجودی</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>پاراستامول</td>
+                                                <td>156</td>
+                                                <td>850</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ایبوپروفن</td>
+                                                <td>134</td>
+                                                <td>620</td>
+                                            </tr>
+                                            <tr>
+                                                <td>آسپرین</td>
+                                                <td>98</td>
+                                                <td>445</td>
+                                            </tr>
+                                            <tr>
+                                                <td>آموکسی سیلین</td>
+                                                <td>87</td>
+                                                <td>320</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
