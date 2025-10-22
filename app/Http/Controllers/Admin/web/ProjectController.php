@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Resources\ProjectResources;
 use App\Models\Project;
+use App\Services\MediaServices\MediaService;
 use Carbon\Carbon;
 
 class ProjectController extends Controller
@@ -29,9 +30,14 @@ class ProjectController extends Controller
             ];
         });
 
+
         return view('admin.projects.index', compact('projects'));
     }
 
+    public function create()
+    {
+        return view('admin.projects.create');
+    }
 
     public function show(Project $project)
     {
@@ -43,7 +49,17 @@ class ProjectController extends Controller
     {
         $project = Project::query()->create($request->all());
 
-        return response()->success(new ProjectResources($project));
+
+        $media = MediaService::uploadIf(
+            $request->hasFile('banner'),
+            $request->file('banner'),
+            'banner',
+            'project',
+            $project->id,
+        );
+
+        return view('admin.projects.create');
+
     }
 
 

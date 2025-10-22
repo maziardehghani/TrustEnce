@@ -27,6 +27,7 @@ class ProjectStoreRequest extends FormRequest
             'description' => ['required'],
             'link' => ['required'],
             'is_active' => ['required'],
+            'banner' => ['required', 'file'],
         ];
     }
 }
