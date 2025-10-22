@@ -52,7 +52,9 @@
 
                                         <td>
                                             <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
-                                                <i class="bi bi-pencil"></i>
+                                                <a href="{{route('admin.projects.show' , $project['id'])}}">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
                                             </button>
 
                                             <button class="btn btn-sm btn-outline-danger" title="مشاهده">

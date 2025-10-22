@@ -41,7 +41,7 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        return response()->success(new ProjectResources($project));
+        return view('admin.projects.show', compact('project'));
     }
 
 
@@ -67,7 +67,20 @@ class ProjectController extends Controller
     {
         $project->update($request->all());
 
-        return response()->success();
+
+        if ($request->hasFile('banner')) {
+
+            MediaService::replace(
+                $request->file('banner'),
+                'banner',
+                'project',
+                $project->id,
+            );
+        }
+
+
+        return view('admin.projects.show', compact('project'));
+
     }
 
 
