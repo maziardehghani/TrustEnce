@@ -11,6 +11,7 @@ Route::get('/admin-panel/projects/create', [ProjectController::class, 'create'])
 Route::get('/admin-panel/show/{project}', [ProjectController::class, 'show'])->name('admin.projects.show');
 Route::post('/admin-panel/store', [ProjectController::class, 'store'])->name('admin.projects.store');
 Route::put('/admin-panel/update/{project}', [ProjectController::class, 'update'])->name('admin.projects.update');
+Route::get('/admin-panel/delete/{project}', [ProjectController::class, 'delete'])->name('admin.projects.delete');
 
 
 

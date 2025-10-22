@@ -83,5 +83,12 @@ class ProjectController extends Controller
 
     }
 
+    public function delete(Project $project)
+    {
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
+    }
+
 
 }
