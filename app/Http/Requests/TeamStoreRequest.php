@@ -24,9 +24,12 @@ class TeamStoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'family' => 'required|string',
-            'attrs' => 'required|array',
-            'attrs.*.title' => 'required|string',
-            'attrs.*.value' => 'required|string',
+            'position' => 'required|string',
+            'bio' => 'required|string',
+            'linkedin' => 'required|string',
+            'twitter' => 'required|string',
+            'github' => 'required|string',
+            'profile' => 'required|file',
 
         ];
     }

@@ -15,6 +15,10 @@ Route::put('/admin-panel/update/{project}', [ProjectController::class, 'update']
 
 
 Route::get('/admin-panel/teams', [TeamController::class, 'index'])->name('admin.teams.index');
+Route::get('/admin-panel/teams/create', [TeamController::class, 'create'])->name('admin.teams.create');
+Route::get('/admin-panel/show/{team}', [TeamController::class, 'show'])->name('admin.teams.show');
+Route::post('/admin-panel/store', [TeamController::class, 'store'])->name('admin.teams.store');
+Route::put('/admin-panel/update/{project}', [TeamController::class, 'update'])->name('admin.teams.update');
 
 
-Route::get('/admin-panel/requests', [ProjectRequestController::class, 'index'])->name('admin.requests.index');
+Route::get('/admin-panel//admin-panel/requests', [ProjectRequestController::class, 'index'])->name('admin.requests.index');

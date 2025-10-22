@@ -20,11 +20,21 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'maziar',
                     'family' => 'dehghani',
+                    'bio' => 'very good boy',
+                    'position' => 'backend developer',
+                    'linkedin' => 'test',
+                    'twitter' => 'test',
+                    'github' => 'test',
                     'created_at' => now(),
                 ],
                 [
                     'name' => 'ali',
                     'family' => 'ashrafi',
+                    'bio' => 'very good boy',
+                    'position' => 'frontend developer',
+                    'linkedin' => 'test',
+                    'twitter' => 'test',
+                    'github' => 'test',
                     'created_at' => now(),
                 ]
             ]

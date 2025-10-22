@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TeamStoreRequest;
 use App\Http\Resources\TeamResources;
 use App\Models\Team;
+use App\Services\MediaServices\MediaService;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -33,11 +34,32 @@ class TeamController extends Controller
         return view('admin.teams.index', compact('teams'));
 
     }
+
+
+    public function create()
+    {
+        return view('admin.teams.create');
+    }
+
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(TeamStoreRequest $request)
     {
+
+
+        $team = Team::query()->create($request->validated());
+
+        $media = MediaService::uploadIf(
+            $request->hasFile('profile'),
+            $request->file('profile'),
+            'profile',
+            'team',
+            $team->id,
+        );
+
+        return redirect()->route('admin.teams.index');
 
     }
 

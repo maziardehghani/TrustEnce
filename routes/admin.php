@@ -63,12 +63,12 @@ Route::prefix('teams')->group(function () {
         ->name('teams.show');
 
 
-//    Route::post('store', [TeamController::class, 'store'])
-//        ->name('teams.store');
-//
-//
-//    Route::put('update/{project}', [TeamController::class, 'update'])
-//        ->name('teams.update');
+    Route::post('store', [TeamController::class, 'store'])
+        ->name('teams.store');
+
+
+    Route::put('update/{project}', [TeamController::class, 'update'])
+        ->name('teams.update');
 
 });
 

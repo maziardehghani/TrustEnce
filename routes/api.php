@@ -19,24 +19,24 @@ Route::post('/project-request', [ProjectRequestController::class, 'storeProjectR
 
 
 
-Route::get('samanTest', function () {
-
-
-    $plainText = "0|0072363808|01829465|";
-
-    $key = base64_decode("M3M2djl5JEImRSlIQE1jUQ==");
-    $iv  = base64_decode("WHAyczV2OHkvQj9FKEcrSw==");
-
-    $encrypted = openssl_encrypt(
-        $plainText,
-        'AES-128-CBC',
-        $key,
-        OPENSSL_RAW_DATA,
-        $iv
-    );
-
-    $encoded = base64_encode($encrypted);
-
-    return $encoded;
-
-});
+//Route::get('samanTest', function () {
+//
+//
+//    $plainText = "0|0072363808|01829465|";
+//
+//    $key = base64_decode("M3M2djl5JEImRSlIQE1jUQ==");
+//    $iv  = base64_decode("WHAyczV2OHkvQj9FKEcrSw==");
+//
+//    $encrypted = openssl_encrypt(
+//        $plainText,
+//        'AES-128-CBC',
+//        $key,
+//        OPENSSL_RAW_DATA,
+//        $iv
+//    );
+//
+//    $encoded = base64_encode($encrypted);
+//
+//    return $encoded;
+//
+//});

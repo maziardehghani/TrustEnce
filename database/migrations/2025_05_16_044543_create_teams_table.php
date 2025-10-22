@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('family');
+            $table->string('position');
+            $table->text('bio');
+            $table->string('linkedin');
+            $table->string('twitter');
+            $table->string('github');
             $table->timestamps();
         });
     }
