@@ -46,9 +46,8 @@
                                 <td>{{ $media->id }}</td>
                                 <td>{{ $media->name }}</td>
                                 <td>
-                                    <a href="{{URL::to($media->url) }}" target="_blank" class="text-decoration-none">
-                                        {{ URL::to($media->url) }}
-                                    </a>
+                                    <img width="100px" height="100px" src="{{URL::to($media->url)}}" alt="">
+
                                 </td>
                                 <td>{{ $media->mediaable_type }}</td>
                                 <td>{{ $media->mediaable_id }}</td>

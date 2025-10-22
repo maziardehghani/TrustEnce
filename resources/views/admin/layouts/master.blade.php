@@ -26,7 +26,7 @@
         </button>
         <a class="navbar-brand" href="dashboard.html">
             <i class="bi bi-hospital me-2"></i>
-            داشبور وبسایت Trustence
+            make some money babe
         </a>
 
         <div class="navbar-nav me-auto">
@@ -37,12 +37,10 @@
                     کاربر
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>پروفایل</a></li>
-                    <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear me-2"></i>تنظیمات</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>خروج</a></li>
+                    <li><a class="dropdown-item" href="{{route('logout')}}"><i class="bi bi-box-arrow-right me-2"></i>خروج</a></li>
                 </ul>
             </div>
             <button class="btn btn-outline-light ms-2" id="themeToggle">
