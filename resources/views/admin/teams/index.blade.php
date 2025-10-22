@@ -14,28 +14,27 @@
 
                 <div class="card shadow">
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary">لیست پروژه ها</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">لیست تیم ها</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <thead class="table-light">
                                 <tr>
-                                    <th>عنوان</th>
-                                    <th>لینک</th>
-                                    <th>وضعیت</th>
-                                    <th>تاریخ</th>
-                                    <th>عملیات</th>
+                                    <th>نام</th>
+                                    <th>سمت</th>
+                                    <th>پروفایل</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($projects as $project)
+                                @foreach($teams as $team)
 
                                     <tr>
-                                        <td>{{$project['title']}}</td>
-                                        <td>{{$project['link']}}</td>
-                                        <td>{{$project['is_active']}}</td>
-                                        <td>{{$project['created_at']}}</td>
+                                        <td>{{$team['name']}}</td>
+                                        <td>{{$team['position']}}</td>
+                                        <td>
+                                            <img width="100px" height="100px" src="{{URL::to($team['profile'])}}" alt="">
+                                        </td>
 
                                         <td>
                                             <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">

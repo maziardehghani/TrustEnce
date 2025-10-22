@@ -12,7 +12,7 @@
     <!-- Vazir Font -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{asset('/css/styles.css')}}">
 </head>
 
 
@@ -60,14 +60,14 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
+                        <a class="nav-link" href="{{route('admin.projects.index')}}">
                             <i class="bi bi-house-door me-2"></i>
                             پروژه ها
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
+                        <a class="nav-link" href="{{route('admin.teams.index')}}">
                             <i class="bi bi-house-door me-2"></i>
                             تیم ها
                         </a>
@@ -75,15 +75,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
-                            <i class="bi bi-house-door me-2"></i>
-                            پروژه ها
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
+                        <a class="nav-link" href="{{route('admin.requests.index')}}">
                             <i class="bi bi-house-door me-2"></i>
                             درخواست ها
                         </a>
@@ -98,7 +90,7 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script src="{{asset('/js/script.js')}}"></script>
 </body>
 
 

@@ -17,7 +17,21 @@ class TeamController extends Controller
     {
         $teams = Team::query()->latest()->get();
 
-        return response()->success(TeamResources::collection($teams), 200);
+
+        $teams = $teams->map(function ($team) {
+            return [
+                'name' => $team->fullName,
+                'position' => $team->position,
+                'bio' => $team->bio,
+                'linkedin' => $team->linkedin,
+                'twitter' => $team->twitter,
+                'github' => $team->github,
+                'profile' => $team->mediaFile,
+            ];
+        });
+
+        return view('admin.teams.index', compact('teams'));
+
     }
     /**
      * Store a newly created resource in storage.
