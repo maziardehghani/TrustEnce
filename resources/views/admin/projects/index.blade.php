@@ -11,10 +11,8 @@
             <h1 class="h2">مدیریت پروژه ها</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{route('admin.projects.create')}}"><i class="bi bi-plus-circle me-1"></i>پروژه
+                        <a class="btn btn-primary" href="{{route('admin.projects.create')}}"><i class="bi bi-plus-circle me-1 text-white"></i>پروژه
                             جدید</a>
-                    </button>
                 </div>
             </div>
         </div>

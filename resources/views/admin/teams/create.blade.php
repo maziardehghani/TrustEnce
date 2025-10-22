@@ -6,14 +6,14 @@
 
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">پروژه</h1>
+            <h1 class="h2">تیم</h1>
         </div>
 
         <div class="row">
             <div class="col-lg-10">
                 <div class="card shadow mb-4">
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary"> اطلاهات پروژه نمونه کار وارد کنید</h6>
+                        <h6 class="m-0 font-weight-bold text-primary"> اطلاهات تیم نمونه کار وارد کنید</h6>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.teams.store') }}" method="POST" enctype="multipart/form-data">

@@ -29,7 +29,7 @@ class TeamStoreRequest extends FormRequest
             'linkedin' => 'required|string',
             'twitter' => 'required|string',
             'github' => 'required|string',
-            'profile' => 'required|file',
+            'profile' => 'nullable|file',
 
         ];
     }

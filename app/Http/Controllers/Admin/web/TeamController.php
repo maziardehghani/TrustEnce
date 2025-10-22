@@ -21,6 +21,7 @@ class TeamController extends Controller
 
         $teams = $teams->map(function ($team) {
             return [
+                'id' => $team->id,
                 'name' => $team->fullName,
                 'position' => $team->position,
                 'bio' => $team->bio,
@@ -68,22 +69,39 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        return response()->success(new TeamResources($team));
+        return view('admin.teams.show', compact('team'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Team $team)
+    public function update(TeamStoreRequest $request, $team)
     {
-        //
+
+        $team = Team::query()->findOrFail($team);
+
+        $team->update($request->validated());
+
+
+        if ($request->hasFile('profile')) {
+            MediaService::replace(
+                $request->file('profile'),
+                'profile',
+                'team',
+                $team->id,
+            );
+        }
+
+        return redirect()->route('admin.teams.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team)
+    public function delete(Team $team)
     {
-        //
+        $team->delete();
+
+        return redirect()->route('admin.teams.index');
     }
 }

@@ -11,9 +11,7 @@
                     <h1 class="h2">مدیریت تیم ها</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
-                            <button type="button" class="btn btn-primary">
-                                <a href="{{route('admin.teams.create')}}"><i class="bi bi-plus-circle me-1"></i>تیم جدید</a>
-                            </button>
+                                <a class="btn btn-primary" href="{{route('admin.teams.create')}}"><i class="bi bi-plus-circle me-1"></i>تیم جدید</a>
                         </div>
                     </div>
                 </div>
@@ -47,13 +45,13 @@
                                         </td>
 
                                         <td>
-                                            <button class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
+                                            <a href="{{route('admin.teams.show', $team['id'])}}" class="btn btn-sm btn-outline-primary me-1" title="ویرایش">
                                                 <i class="bi bi-pencil"></i>
-                                            </button>
+                                            </a>
 
-                                            <button class="btn btn-sm btn-outline-danger" title="مشاهده">
+                                            <a href="{{route('admin.teams.delete', $team['id'])}}" class="btn btn-sm btn-outline-danger" title="مشاهده">
                                                 <i class="bi bi-trash"></i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
 
