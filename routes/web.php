@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\web\MediaController;
 use App\Http\Controllers\Admin\web\ProjectController;
 use App\Http\Controllers\Admin\web\ProjectRequestController;
 use App\Http\Controllers\Admin\web\TeamController;
@@ -21,6 +22,11 @@ Route::get('/admin-panel/teams/show/{team}', [TeamController::class, 'show'])->n
 Route::post('/admin-panel/teams/store', [TeamController::class, 'store'])->name('admin.teams.store');
 Route::put('/admin-panel/teams/update/{team}', [TeamController::class, 'update'])->name('admin.teams.update');
 Route::get('/admin-panel/teams/delete/{team}', [TeamController::class, 'delete'])->name('admin.teams.delete');
+
+
+Route::get('/admin-panel/medias', [MediaController::class, 'index'])->name('admin.medias.index');
+Route::get('/admin-panel/medias/create', [MediaController::class, 'create'])->name('admin.medias.create');
+Route::get('/admin-panel/medias/delete/{team}', [MediaController::class, 'delete'])->name('admin.medias.delete');
 
 
 Route::get('/admin-panel/requests', [ProjectRequestController::class, 'index'])->name('admin.requests.index');

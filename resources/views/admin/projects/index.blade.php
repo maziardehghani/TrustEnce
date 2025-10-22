@@ -30,6 +30,7 @@
                     <table class="table table-bordered table-hover">
                         <thead class="table-light">
                         <tr>
+                            <th>آیدی</th>
                             <th>عنوان</th>
                             <th>بنر</th>
                             <th>وضعیت</th>
@@ -41,6 +42,7 @@
                         @foreach($projects as $project)
 
                             <tr>
+                                <td>{{$project['id']}}</td>
                                 <td>{{$project['title']}}</td>
                                 <td>
                                     <img width="100px" height="100px" src="{{URL::to($project['banner'])}}" alt="">

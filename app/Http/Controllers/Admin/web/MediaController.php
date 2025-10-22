@@ -5,11 +5,26 @@ namespace App\Http\Controllers\Admin\web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FileRequest;
 use App\Models\Media;
+use App\Models\Project;
 use App\Services\MediaServices\MediaService;
+use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MediaController extends Controller
 {
+
+    public function index()
+    {
+        $medias = Media::query()->latest()->get();
+
+
+        return view('admin.medias.index', compact('medias'));
+    }
+
+    public function create()
+    {
+
+    }
     /**
      * @param FileRequest $request
      * @return JsonResponse

@@ -67,6 +67,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.medias.index')}}">
+                            <i class="bi bi-house-door me-2"></i>
+                            رسانه ها
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.teams.index')}}">
                             <i class="bi bi-house-door me-2"></i>
                             تیم ها
