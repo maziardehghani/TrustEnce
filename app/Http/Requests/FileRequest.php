@@ -23,9 +23,9 @@ class FileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => ['required', 'string', Rule::in(['banner', 'background'])],
-            'modelable_type' => ['required', 'string'],
-            'modelable_id' => ['required', 'integer',],
+            'type' => ['required'],
+            'modelable_type' => ['required'],
+            'modelable_id' => ['required'],
             'file' => 'required|file|mimes:pdf,doc,docx,jpg,jpeg,png,webp',
         ];
     }

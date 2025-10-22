@@ -8,7 +8,6 @@ use App\Models\Media;
 use App\Models\Project;
 use App\Services\MediaServices\MediaService;
 use Carbon\Carbon;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MediaController extends Controller
 {
@@ -23,16 +22,15 @@ class MediaController extends Controller
 
     public function create()
     {
-
+        return view('admin.medias.create');
     }
     /**
      * @param FileRequest $request
-     * @return JsonResponse
      *
      *
      * upload files with this method is possible
      */
-    public function store(FileRequest $request):JsonResponse
+    public function store(FileRequest $request)
     {
         MediaService::uploadIf(
             $request->hasFile('file'),
@@ -42,16 +40,17 @@ class MediaController extends Controller
             $request->modelable_id,
         );
 
-        return response()->success(null,'فایل با موفقیت ذخیره شد');
+
+        return redirect()->route('admin.medias.index');
+
     }
 
     /**
      * @param FileRequest $request
-     * @return JsonResponse
      *
      * replacing file with last one
      */
-    public function replace(FileRequest $request):JsonResponse
+    public function replace(FileRequest $request)
     {
         MediaService::replace(
             $request->file('file'),
@@ -66,19 +65,21 @@ class MediaController extends Controller
 
     /**
      * @param Media $media
-     * @return \Illuminate\Http\JsonResponse containing error or success response
+     * @return \Illuminate\Http\RedirectResponse containing error or success response
      *
      * in deleting File process the actual file will be removed from server
      * and also the data of that file were from database will remove too
      *
      *
      */
-    public function delete(Media $media):JsonResponse
+    public function delete(Media $media)
     {
         MediaService::delete($media);
         $media->delete();
 
-        return response()->success(null, 'فایل با موفقیت حذف شد');
+
+        return redirect()->route('admin.medias.index');
+
     }
 
 
