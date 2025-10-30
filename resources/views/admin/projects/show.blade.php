@@ -25,6 +25,12 @@
                                 <input type="text" name="title" class="form-control" value="{{ old('title', $project->title) }}" required>
                             </div>
 
+
+                            <div class="mb-3">
+                                <label class="form-label">دسته بندی</label>
+                                <input type="text" name="category_name" class="form-control" value="{{ old('category_name', $project->category_name) }}" required>
+                            </div>
+
                             <div class="mb-3">
                                 <label class="form-label">متن مقدمه</label>
                                 <input type="text" name="intro" class="form-control" value="{{ old('intro', $project->intro) }}" required>

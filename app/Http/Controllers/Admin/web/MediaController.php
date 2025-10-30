@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin\web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FileRequest;
 use App\Models\Media;
-use App\Models\Project;
 use App\Services\MediaServices\MediaService;
-use Carbon\Carbon;
 
 class MediaController extends Controller
 {
@@ -75,8 +73,6 @@ class MediaController extends Controller
     public function delete(Media $media)
     {
         MediaService::delete($media);
-        $media->delete();
-
 
         return redirect()->route('admin.medias.index');
 

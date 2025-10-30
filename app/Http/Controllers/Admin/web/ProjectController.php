@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectStoreRequest;
-use App\Http\Resources\ProjectResources;
 use App\Models\Project;
 use App\Services\MediaServices\MediaService;
 use Carbon\Carbon;
@@ -20,6 +19,7 @@ class ProjectController extends Controller
             return [
                 'id' => $project->id,
                 'title' => $project->title,
+                'category_name' => $project->category_name,
                 'intro' => $project->intro,
                 'description' => $project->description,
                 'link' => $project->link,

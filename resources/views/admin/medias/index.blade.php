@@ -56,16 +56,11 @@
 
                                 <td>
 
+                                    <a class="btn btn-sm btn-outline-danger"
+                                       href="{{route('admin.medias.delete', $media->id)}}">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
 
-                                    <form action="{{ route('admin.medias.delete', $media->id) }}" method="POST"
-                                          class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="حذف"
-                                                onclick="return confirm('آیا از حذف این رسانه مطمئن هستید؟')">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
                                 </td>
                             </tr>
                         @empty

@@ -24,6 +24,7 @@ class ProjectStoreRequest extends FormRequest
         return [
             'title' => ['required'],
             'intro' => ['required'],
+            'category_name' => ['required'],
             'description' => ['required'],
             'link' => ['required'],
             'is_active' => ['required'],

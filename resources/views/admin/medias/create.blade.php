@@ -47,8 +47,19 @@
                                     <option value="" disabled selected>انتخاب کنید</option>
                                     <option value="banner">بنر</option>
                                     <option value="background">پس‌زمینه</option>
+                                    <option value="gallery_1">gallery_1</option>
+                                    <option value="gallery_2">gallery_2</option>
+                                    <option value="gallery_3">gallery_3</option>
+                                    <option value="gallery_4">gallery_4</option>
+                                    <option value="gallery_5">gallery_5</option>
+                                    <option value="gallery_6">gallery_6</option>
+                                    <option value="gallery_7">gallery_7</option>
+                                    <option value="gallery_8">gallery_8</option>
+                                    <option value="gallery_9">gallery_9</option>
+                                    <option value="gallery_10">gallery_10</option>
                                 </select>
                             </div>
+
 
                             <div class="mb-3">
                                 <label class="form-label">فایل مدیا</label>

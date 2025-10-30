@@ -32,8 +32,10 @@ Route::middleware([AdminMiddleware::class])->prefix('admin-panel')->group(functi
 
     Route::get('/medias', [MediaController::class, 'index'])->name('admin.medias.index');
     Route::get('/medias/create', [MediaController::class, 'create'])->name('admin.medias.create');
-    Route::get('/medias/delete/{team}', [MediaController::class, 'delete'])->name('admin.medias.delete');
+    Route::get('/medias/delete/{media}', [MediaController::class, 'delete'])->name('admin.medias.delete');
 
+    Route::post('/medias/store', [MediaController::class, 'store'])->name('admin.medias.store');
+    Route::put('/medias/replace/{media}', [MediaController::class, 'replace'])->name('admin.medias.replace');
 
     Route::get('/requests', [ProjectRequestController::class, 'index'])->name('admin.requests.index');
 

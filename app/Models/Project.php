@@ -15,6 +15,7 @@ class Project extends Model
 
     protected $fillable = [
         'title',
+        'category_name',
         'intro',
         'description',
         'link',
@@ -45,5 +46,92 @@ class Project extends Model
             return $this->medias()->where('type', 'background')->first()?->url;
         });
     }
+
+
+    public function gallery_1(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_1')->first()?->url;
+        });
+    }
+
+
+    public function gallery_2(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_2')->first()?->url;
+        });
+    }
+
+
+    public function gallery_3(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_3')->first()?->url;
+        });
+    }
+
+
+
+    public function gallery_4(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_4')->first()?->url;
+        });
+    }
+
+
+
+    public function gallery_5(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_5')->first()?->url;
+        });
+    }
+
+
+    public function gallery_6(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_6')->first()?->url;
+        });
+    }
+
+
+
+    public function gallery_7(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_7')->first()?->url;
+        });
+    }
+
+
+
+    public function gallery_8(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_8')->first()?->url;
+        });
+    }
+
+
+
+    public function gallery_9(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_9')->first()?->url;
+        });
+    }
+
+
+
+    public function gallery_10(): Attribute
+    {
+        return Attribute::make(get: function ($value) {
+            return $this->medias()->where('type', 'gallery_10')->first()?->url;
+        });
+    }
+
 
 }

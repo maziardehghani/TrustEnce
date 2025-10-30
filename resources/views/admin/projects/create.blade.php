@@ -24,23 +24,28 @@
                             </div>
 
                             <div class="mb-3">
+                                <label class="form-label">دسته بندی</label>
+                                <input type="text" name="category_name" class="form-control" >
+                            </div>
+
+                            <div class="mb-3">
                                 <label class="form-label">متن مقدمه</label>
-                                <input type="text" name="intro" class="form-control" required>
+                                <input type="text" name="intro" class="form-control" >
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">توضیحات</label>
-                                <textarea name="description" class="form-control" rows="4" required></textarea>
+                                <textarea name="description" class="form-control" rows="4" ></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">لینک</label>
-                                <input type="text" name="link" class="form-control" required>
+                                <input type="text" name="link" class="form-control">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">وضعیت نمایش</label>
-                                <select name="is_active" class="form-select" required>
+                                <select name="is_active" class="form-select" >
                                     <option value="1">فعال</option>
                                     <option value="0">غیرفعال</option>
                                 </select>
