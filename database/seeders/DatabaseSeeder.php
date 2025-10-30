@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
 //            ProjectSeeder::class,
 //            TeamSeeder::class,
-//            Project_requests_form::class,
+            Project_requests_form::class,
             UserSeeder::class,
         ]);
     }
