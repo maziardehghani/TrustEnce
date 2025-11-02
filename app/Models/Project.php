@@ -48,15 +48,15 @@ class Project extends Model
     }
 
 
-    public function gallery_1(): Attribute
+    public function gallery1(): Attribute
     {
-        return Attribute::make(get: function ($value) {
+        return Attribute::make(get: function () {
             return $this->medias()->where('type', 'gallery_1')->first()?->url;
         });
     }
 
 
-    public function gallery_2(): Attribute
+    public function gallery2(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_2')->first()?->url;
@@ -64,7 +64,7 @@ class Project extends Model
     }
 
 
-    public function gallery_3(): Attribute
+    public function gallery3(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_3')->first()?->url;
@@ -73,7 +73,7 @@ class Project extends Model
 
 
 
-    public function gallery_4(): Attribute
+    public function gallery4(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_4')->first()?->url;
@@ -82,7 +82,7 @@ class Project extends Model
 
 
 
-    public function gallery_5(): Attribute
+    public function gallery5(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_5')->first()?->url;
@@ -90,7 +90,7 @@ class Project extends Model
     }
 
 
-    public function gallery_6(): Attribute
+    public function gallery6(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_6')->first()?->url;
@@ -99,7 +99,7 @@ class Project extends Model
 
 
 
-    public function gallery_7(): Attribute
+    public function gallery7(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_7')->first()?->url;
@@ -108,7 +108,7 @@ class Project extends Model
 
 
 
-    public function gallery_8(): Attribute
+    public function gallery8(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_8')->first()?->url;
@@ -117,7 +117,7 @@ class Project extends Model
 
 
 
-    public function gallery_9(): Attribute
+    public function gallery9(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_9')->first()?->url;
@@ -126,7 +126,7 @@ class Project extends Model
 
 
 
-    public function gallery_10(): Attribute
+    public function gallery10(): Attribute
     {
         return Attribute::make(get: function ($value) {
             return $this->medias()->where('type', 'gallery_10')->first()?->url;
