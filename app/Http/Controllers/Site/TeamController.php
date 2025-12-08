@@ -10,7 +10,7 @@ class TeamController extends Controller
 {
     public function teams()
     {
-        $teams = Team::query()->latest()->get();
+        $teams = Team::query()->orderByDesc('id')->get();
 
         return response()->success(TeamResources::collection($teams), 200);
     }
