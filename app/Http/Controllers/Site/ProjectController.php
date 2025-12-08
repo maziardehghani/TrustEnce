@@ -10,7 +10,7 @@ class ProjectController extends Controller
 {
     public function lastProjects($limit)
     {
-        $projects = Project::query()->whereActive()->get()->limit($limit)->get();
+        $projects = Project::query()->whereActive()->limit($limit)->get();
 
         return response()->success(ProjectResources::collection($projects));
     }
